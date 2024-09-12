@@ -22,10 +22,13 @@ const NewCartItem = () => {
     };
 
     const onCartItemSubmit = () => { 
-        setCartModal(false)
-        setCart([...cart, {...currCartItem, key : uniqueProductKey }])
-        setCurrCartItem(currCartItemObject)
-        setUniqueProductKey(uniqueProductKey + 1)
+        if (currCartItem.productName.length){
+
+            setCartModal(false)
+            setCart([...cart, {...currCartItem, key : uniqueProductKey }])
+            setCurrCartItem(currCartItemObject)
+            setUniqueProductKey(uniqueProductKey + 1)
+        }
     }
  
     return (
