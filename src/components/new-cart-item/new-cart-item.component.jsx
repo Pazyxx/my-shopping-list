@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect} from 'react';
 import './new-cart-item.styles.scss';
 import StyleContainer from '../style-container/style-container.component';
 import InputBubble from '../Input-bubble/input-bubble.component.jsx';
@@ -15,6 +15,7 @@ const NewCartItem = () => {
     const { cart, setCart, setCartModal, uniqueProductKey, setUniqueProductKey } = useContext(CartContext);
     
     const [currCartItem, setCurrCartItem] = useState(currCartItemObject)
+    const [ isSubmitted, setIsSubmitted ] = useState(false)
 
     const onDetailsChange = (name, event) => {
         const { value } = event.target;
@@ -23,13 +24,24 @@ const NewCartItem = () => {
 
     const onCartItemSubmit = () => { 
         if (currCartItem.productName.length){
+            if (!currCartItem.quantity.length){
+                setCurrCartItem({...currCartItem, quantity : 1})
+            } 
+            setIsSubmitted(true)
+        }
+    }
 
+    useEffect(() => {
+        if(isSubmitted){
+            setIsSubmitted(true)
             setCartModal(false)
             setCart([...cart, {...currCartItem, key : uniqueProductKey }])
             setCurrCartItem(currCartItemObject)
             setUniqueProductKey(uniqueProductKey + 1)
+            setIsSubmitted(false)
         }
-    }
+        
+    }, [isSubmitted])
  
     return (
         <div className="style-container-cart-modal">
