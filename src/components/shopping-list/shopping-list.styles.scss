@@ -1,0 +1,26 @@
+.single-shopping-list-container{
+    min-height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+    padding-left: 30px;
+    padding-right : 19px;
+    
+    
+
+    img{
+        height : 25px;
+        width : 25px;
+        filter: invert(39%) sepia(50%) saturate(407%) hue-rotate(155deg) brightness(91%) contrast(89%);
+        cursor: pointer;
+        
+    }
+}
+
+.shopping-list-name{
+    font-size : 18px;
+    color: #407088; 
+    
+}

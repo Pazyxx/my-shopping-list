@@ -1,0 +1,24 @@
+/* shopping-lists.styles.scss */
+.currently-no-shoppinglists{
+  font-size: 20px;
+  color: #407088;
+  font-weight: 400;
+  margin-top: 80px;
+}
+.shopping-lists-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* shopping-list.styles.scss */
+  .single-shopping-list-container {
+    border: 2px solid #407088;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .shopping-list-name {
+    margin: 0;
+  }
+  
