@@ -9,12 +9,6 @@ const App = () => {
   const stars = Array.from({ length: 50 });
 
   return (
-    <>
-      <div className="stars">
-        {stars.map((_, i) => (
-          <div key={i} className="star"></div>
-        ))}
-      </div>
       <div className="app-container">
         
         <Routes>
@@ -26,7 +20,6 @@ const App = () => {
 
         </Routes>
       </div>
-    </>
   )
 }
 
