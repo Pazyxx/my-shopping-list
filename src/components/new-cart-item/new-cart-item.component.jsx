@@ -5,7 +5,7 @@ import InputBubble from '../Input-bubble/input-bubble.component.jsx';
 import { CartContext } from '../../contexts/cart.context';
 
 const currCartItemObject = {
-    quantity : 0, 
+    quantity : 1, 
     productName : "",
     key : 0,
     isToggle : false
