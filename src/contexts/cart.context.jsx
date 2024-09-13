@@ -4,11 +4,14 @@ import { ShoppingListsContext } from "./shopping-lists.context";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+    const { shoppingLists, currentShoppingList, setCurrentShoppingList, setShoppingLists } = useContext(ShoppingListsContext);
     const [cartModal, setCartModal] = useState(false);
+    const [editBool, setEditBool] = useState(false)
     const [cart, setCart] = useState([]);
     const [uniqueProductKey, setUniqueProductKey] = useState(0)
-    const { shoppingLists, currentShoppingList, setCurrentShoppingList, setShoppingLists } = useContext(ShoppingListsContext);
+    const [updateProduct, setUpdateProduct] = useState(false)
     const [isUpdated, setIsUpdated] = useState(false);
+    const [editedProduct, setEditedProduct] = useState({})
     const isInitialMount = useRef(true);
 
     useEffect(() => {
@@ -50,7 +53,9 @@ export const CartProvider = ({ children }) => {
         console.log("Me", shoppingLists);
     }, [shoppingLists]);
 
-    const value = { cart, setCart, cartModal, setCartModal, uniqueProductKey, setUniqueProductKey };
+    
+
+    const value = { updateProduct, setUpdateProduct, editedProduct, setEditedProduct, editBool, setEditBool, cart, setCart, cartModal, setCartModal, uniqueProductKey, setUniqueProductKey };
 
     return (
         <CartContext.Provider value={value}>{children}</CartContext.Provider>
