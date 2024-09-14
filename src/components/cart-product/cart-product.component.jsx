@@ -18,6 +18,7 @@ const CartProduct = ({productName, quantity, productKey, isToggle}) => {
 
     const toggleHandler = () => {
         setCart(cart.map(product => 
+            
             product.key === productKey
                 ? { ...product, isToggle: !product.isToggle }
                 : product
