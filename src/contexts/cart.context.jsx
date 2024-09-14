@@ -1,9 +1,12 @@
 import { createContext, useContext, useEffect, useState, useRef } from "react";
 import { ShoppingListsContext } from "./shopping-lists.context";
+import { UserContext } from "./user.context";
+import { setListsToDb } from "../utils/firebase/firebase.utils";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+    const { setUserDoc, userDoc } = useContext(UserContext)
     const { shoppingLists, currentShoppingList, setCurrentShoppingList, setShoppingLists } = useContext(ShoppingListsContext);
     const [cartModal, setCartModal] = useState(false);
     const [editBool, setEditBool] = useState(false)
@@ -15,7 +18,6 @@ export const CartProvider = ({ children }) => {
     const isInitialMount = useRef(true);
 
     useEffect(() => {
-        console.log("cart", cart)
         if (isInitialMount.current) {
             isInitialMount.current = false;
         } else {
@@ -49,9 +51,9 @@ export const CartProvider = ({ children }) => {
         setShoppingLists(newShoppingLists);
     };
 
-    useEffect(() => {
-        console.log("Me", shoppingLists);
-    }, [shoppingLists]);
+
+
+    
 
     
 
